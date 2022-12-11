@@ -5,11 +5,13 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/scss/variables.scss';
+
 #app {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $color-grey;
 }
 </style>
