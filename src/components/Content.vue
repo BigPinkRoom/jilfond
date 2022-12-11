@@ -1,18 +1,28 @@
 <template>
   <div class="content">
-    <img class="content__image" src="@/assets/images/image_big.svg" alt="" />
-    <div class="content__text">
-      <div class="content__title">{{ currentUser.name }}</div>
+    <img
+      class="content__image"
+      v-if="currentUser?.id"
+      src="@/assets/images/image_big.svg"
+      alt=""
+    />
+    <div class="content__text" v-if="currentUser?.id">
+      <div class="content__title">{{ currentUser?.name }}</div>
       <div class="content__email">
-        <span class="content__email--bold">email: </span>{{ currentUser.email }}
+        <span class="content__email--bold">email: </span
+        >{{ currentUser?.email }}
       </div>
       <div class="content__phone">
-        <span class="content__phone--bold">phone: </span>{{ currentUser.phone }}
+        <span class="content__phone--bold">phone: </span
+        >{{ currentUser?.phone }}
       </div>
       <div class="content__about">О себе:</div>
       <div class="content__about-text">
-        {{ currentUser.company.catchPhrase }}
+        {{ currentUser.company?.catchPhrase }}
       </div>
+    </div>
+    <div class="content__stub" v-if="!currentUser.id">
+      Выберите сотрудника, чтобы посмотреть его профиль
     </div>
   </div>
 </template>
@@ -33,6 +43,7 @@ export default {
 .content {
   display: flex;
   align-items: flex-start;
+  width: 100%;
   padding: 30px 22px;
   &__image {
     max-width: 424px;
@@ -73,6 +84,14 @@ export default {
 
     color: $color-dark;
     font-weight: 600;
+  }
+
+  &__stub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

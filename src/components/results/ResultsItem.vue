@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'ResultsItem',
@@ -36,15 +36,15 @@ export default {
     },
   },
   computed: {
+    ...mapState(['currentUser']),
     objectStyle() {
       return {
-        'results-item--active': this.active,
+        'results-item--active': this.currentUser.id === this.user.id,
       };
     },
   },
   methods: {
     ...mapActions(['setUser']),
-    isActive() {},
   },
 };
 </script>

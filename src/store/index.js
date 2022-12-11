@@ -9,6 +9,7 @@ export default new Vuex.Store({
     users: [],
     currentUser: {},
     loading: false,
+    textField: false,
   },
   mutations: {
     SET_USERS(state, payload) {
@@ -19,6 +20,10 @@ export default new Vuex.Store({
     },
     SET_LOADING(state, payload) {
       state.loading = payload;
+    },
+    SET_TEXT_FIELD(state, payload) {
+      state.textField = payload;
+      console.log('state', state);
     },
   },
   actions: {
@@ -68,6 +73,9 @@ export default new Vuex.Store({
     },
     setUser({ commit }, payload) {
       commit('SET_CURRENT_USER', payload);
+    },
+    setTextField({ commit }, payload) {
+      commit('SET_TEXT_FIELD', payload);
     },
   },
   modules: {},

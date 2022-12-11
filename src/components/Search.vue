@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'Search',
   props: {
@@ -25,9 +27,10 @@ export default {
       default: 'Поиск сотрудников',
     },
   },
-
   methods: {
+    ...mapActions(['setTextField']),
     updateValue(value) {
+      this.setTextField(Boolean(value));
       this.$emit('updateValue', value);
     },
   },

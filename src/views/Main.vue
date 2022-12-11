@@ -82,7 +82,7 @@ export default {
 
 .main {
   display: flex;
-
+  min-height: calc(100vh - 130px);
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 13px -6px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 0px 13px -6px rgba(34, 60, 80, 0.2);

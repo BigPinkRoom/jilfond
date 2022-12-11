@@ -1,7 +1,12 @@
 <template>
   <div class="results">
     <div class="results__title">Результаты</div>
-    <div class="results__total" v-if="!users.length">Начните поиск</div>
+    <div class="results__total" v-if="!users.length && !textField">
+      Начните поиск
+    </div>
+    <div class="results__total" v-if="!users.length && textField">
+      Ничего не найдено
+    </div>
     <ResultsItem
       v-for="user in users"
       :key="user.id"
@@ -21,11 +26,12 @@ export default {
     ResultsItem,
   },
   computed: {
-    ...mapState(['users']),
+    ...mapState(['users', 'textField']),
   },
   methods: {
     ...mapActions(['setUser']),
     setCurrentUser(user) {
+      console.log(this.textField);
       this.setUser(user);
     },
   },
