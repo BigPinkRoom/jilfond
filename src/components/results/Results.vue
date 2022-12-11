@@ -3,16 +3,17 @@
     <div class="results__title">Результаты</div>
     <div class="results__total" v-if="!users.length">Начните поиск</div>
     <ResultsItem
-      class="results__item"
-      :user="user"
       v-for="user in users"
       :key="user.id"
+      :user="user"
+      class="results__item"
+      @click.native="setUser(user)"
     ></ResultsItem>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import ResultsItem from '@/components/results/ResultsItem';
 export default {
   name: 'Results',
@@ -21,6 +22,12 @@ export default {
   },
   computed: {
     ...mapState(['users']),
+  },
+  methods: {
+    ...mapActions(['setUser']),
+    setCurrentUser(user) {
+      this.setUser(user);
+    },
   },
 };
 </script>

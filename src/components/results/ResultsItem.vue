@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'ResultsItem',
   props: {
@@ -28,13 +30,21 @@ export default {
         return {};
       },
     },
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     objectStyle() {
       return {
-        // 'results-item--active':
+        'results-item--active': this.active,
       };
     },
+  },
+  methods: {
+    ...mapActions(['setUser']),
+    isActive() {},
   },
 };
 </script>
