@@ -30,8 +30,11 @@ export default {
   },
   methods: {
     ...mapActions(['setUser']),
+    /**
+     * Set state to current user
+     * @prop {Object} user - set current user to array users
+     */
     setCurrentUser(user) {
-      console.log(this.textField);
       this.setUser(user);
     },
   },

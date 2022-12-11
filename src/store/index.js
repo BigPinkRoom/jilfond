@@ -23,7 +23,6 @@ export default new Vuex.Store({
     },
     SET_TEXT_FIELD(state, payload) {
       state.textField = payload;
-      console.log('state', state);
     },
   },
   actions: {
@@ -63,7 +62,6 @@ export default new Vuex.Store({
             `https://jsonplaceholder.typicode.com/users/?username=${payload}`
           );
         }
-        // console.log('response data', response.data);
         commit('SET_LOADING', false);
         commit('SET_USERS', response.data);
       } catch (error) {
